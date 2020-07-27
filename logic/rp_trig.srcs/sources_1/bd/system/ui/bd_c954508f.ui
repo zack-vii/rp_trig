@@ -1,0 +1,43 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"5.0",
+   "Default View_TopLeft":"-76,653",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:9.0 TLS
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -lvl 5 -x 1350 -y 300 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 5 -x 1350 -y 320 -defaultsOSRD
+preplace port clk_in -pg 1 -lvl 0 -x 0 -y 210 -defaultsOSRD
+preplace port trig_in -pg 1 -lvl 0 -x 0 -y 230 -defaultsOSRD
+preplace portBus state1 -pg 1 -lvl 5 -x 1350 -y 470 -defaultsOSRD
+preplace portBus state_leds -pg 1 -lvl 5 -x 1350 -y 490 -defaultsOSRD
+preplace portBus state0 -pg 1 -lvl 5 -x 1350 -y 550 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 4 -x 1220 -y 400 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 2 -x 630 -y 620 -defaultsOSRD
+preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -x 630 -y 170 -defaultsOSRD
+preplace inst rst_processing_system7_0_125M -pg 1 -lvl 1 -x 230 -y 110 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 4 -x 1220 -y 550 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -x 230 -y 340 -defaultsOSRD
+preplace inst rp_trig_0 -pg 1 -lvl 3 -x 950 -y 430 -defaultsOSRD
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 220 450 400 N
+preplace netloc rst_processing_system7_0_125M_interconnect_aresetn 1 1 1 440 130n
+preplace netloc rst_processing_system7_0_125M_peripheral_aresetn 1 1 2 430 390 770
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 440 410
+preplace netloc clk_1 1 0 3 NJ 210 440J 290 790J
+preplace netloc clk_wiz_0_clk_out1 1 2 1 800 440n
+preplace netloc rp_trig_0_power_down 1 1 3 460 540 NJ 540 1090
+preplace netloc trig_in_1 1 0 3 NJ 230 410J 310 780J
+preplace netloc rp_trig_0_state_do 1 3 2 1110J 470 NJ
+preplace netloc rp_trig_0_state_led 1 3 2 1100J 490 NJ
+preplace netloc xlconstant_0_dout 1 4 1 NJ 550
+preplace netloc processing_system7_0_DDR 1 1 4 N 300 NJ 300 NJ 300 NJ
+preplace netloc rp_trig_0_BRAM_PORTA 1 3 1 N 390
+preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 1 800 170n
+preplace netloc rp_trig_0_BRAM_PORTB 1 3 1 N 410
+preplace netloc S00_AXI_1 1 1 1 420 110n
+preplace netloc processing_system7_0_FIXED_IO 1 1 4 N 320 NJ 320 NJ 320 NJ
+levelinfo -pg 1 0 230 630 950 1220 1350
+pagesize -pg 1 -db -bbox -sgen -100 0 1510 700
+"
+}
+0

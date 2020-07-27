@@ -1,0 +1,10 @@
+[Unit]
+Description=w7x timing server
+After=network.target rp_trig_fpga.service
+
+[Service]
+ExecStart=/bin/rp_trig
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
