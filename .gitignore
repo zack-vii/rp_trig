@@ -1,4 +1,16 @@
 devicetree/
 linux/
 toolchain/
+uboot/
+
+*.o
 *.so
+
+*.ko
+*.mod.c
+*.o.cmd
+*.ko.cmd
+Module.symvers
+modules.order
+.tmp_versions/
+uImage

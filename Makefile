@@ -1,41 +1,60 @@
-XILINX_RELEASE = 2020.1
-XILINX_LINUX_NAME = linux-xlnx-xilinx-v$(XILINX_RELEASE)
-XILINX_DEVICETREE_NAME = device-tree-xlnx-xilinx-v$(XILINX_RELEASE)
+.DEFAULT_GOAL := all
 
-TOOLCHAIN_VERSION = 7.5-2019.12
-TOOLCHAIN_RELEASE = 7.5.0-2019.12
-TOOLCHAIN_NAME = gcc-linaro-$(TOOLCHAIN_RELEASE)-x86_64_arm-linux-gnueabihf
+VIVADO_RELEASE = 2020.1
 
-XILINX_DEVICETREE = devicetree
-XILINX_LINUX = linux
-TOOLCHAIN = toolchain
+DEVTREE_REPO = Xilinx
+DEVTREE_RELEASE = $(VIVADO_RELEASE)
+DEVTREE_NAME = device-tree-xlnx-xilinx-v$(DEVTREE_RELEASE)
+DEVTREE_TAG = xilinx-v$(DEVTREE_RELEASE)
 
-$(XILINX_DEVICETREE):
+LINUX_REPO = Xilinx
+LINUX_RELEASE = 2016.1
+LINUX_NAME = linux-xlnx-xilinx-v$(LINUX_RELEASE)
+LINUX_TAG = xilinx-v$(LINUX_RELEASE)
+
+UBOOT_REPO = Xilinx
+UBOOT_RELEASE = $(VIVADO_RELEASE)
+UBOOT_NAME = u-boot-xlnx-xilinx-v$(UBOOT_RELEASE)
+UBOOT_TAG = xilinx-v$(UBOOT_RELEASE)
+
+TOOLCHAIN_VERSION = 7.5
+TOOLCHAIN_RELEASE = 2019.12
+TOOLCHAIN_NAME = gcc-linaro-$(TOOLCHAIN_VERSION).0-$(TOOLCHAIN_RELEASE)-x86_64_arm-linux-gnueabihf
+
+DEVTREE_DIR = devicetree
+LINUX_DIR = linux
+UBOOT_DIR = uboot
+TOOLCHAIN_DIR = toolchain
+
+$(DEVTREE_DIR):
 	@rm -rf $@
-	@curl -L https://github.com/Xilinx/device-tree-xlnx/archive/xilinx-v$(XILINX_RELEASE).tar.gz | tar -z -x\
-	 && mv $(XILINX_DEVICETREE_NAME) $@\
+	@curl -L https://github.com/$(DEVTREE_REPO)/device-tree-xlnx/archive/$(DEVTREE_TAG).tar.gz | tar -z -x\
+	 && mv $(DEVTREE_NAME) $@\
 	 && touch $@
 
-$(XILINX_LINUX):
+$(LINUX_DIR):
 	@rm -rf $@
-	@curl -L https://github.com/Xilinx/linux-xlnx/archive/xilinx-v$(XILINX_RELEASE).tar.gz | tar -z -x\
-	 && mv $(XILINX_LINUX_NAME) $@\
+	@curl -L https://github.com/$(LINUX_REPO)/linux-xlnx/archive/$(LINUX_TAG).tar.gz | tar -z -x\
+	 && mv $(LINUX_NAME) $@\
 	 && touch $@
 
-
-$(TOOLCHAIN):
+$(UBOOT_DIR):
 	@rm -rf $@
-	@curl -L http://releases.linaro.org/components/toolchain/binaries/$(TOOLCHAIN_VERSION)/arm-linux-gnueabihf/$(TOOLCHAIN_NAME).tar.xz | tar --xz -x\
+	@curl -L https://github.com/$(UBOOT_REPO)/u-boot-xlnx/archive/$(UBOOT_TAG).tar.gz | tar -z -x\
+	 && mv $(UBOOT_NAME) $@\
+	 && touch $@
+
+$(TOOLCHAIN_DIR):
+	@rm -rf $@
+	@curl -L http://releases.linaro.org/components/toolchain/binaries/$(TOOLCHAIN_VERSION)-$(TOOLCHAIN_RELEASE)/arm-linux-gnueabihf/$(TOOLCHAIN_NAME).tar.xz | tar --xz -x\
 	 && mv $(TOOLCHAIN_NAME) $@\
 	 && touch $@
 
 .PHONY: distclean all
-
 
 distclean:
 	@rm -rf $(XILINX_DEVICETREE) 2>/dev/null ||:
 	@rm -rf $(XILINX_LINUX) 2>/dev/null ||:
 	@rm -rf $(TOOLCHAIN) 2>/dev/null ||:
 
-all: $(XILINX_DEVICETREE) $(XILINX_LINUX) $(TOOLCHAIN)
-
+all: $(DEVTREE_DIR) $(LINUX_DIR) $(TOOLCHAIN_DIR)

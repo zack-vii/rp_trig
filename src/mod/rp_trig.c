@@ -16,7 +16,7 @@
 
 #include <linux/platform_device.h>
 
-#include "rp_trig.h"
+#include "../include/rp_trig.h"
 
 static struct platform_device *s_pdev = 0;
 static int s_device_open = 0;
