@@ -1,7 +1,8 @@
 DATA = librp_trig.so
+SOURCE = rp_trig.c
 
-$(DATA): rp_trig.c
-	gcc --shared -fPIC -I../include -o $@ $<
+$(DATA): $(SOURCE)
+	gcc -O3 --shared -fPIC -I../include -o $@ $<
 
 .PHONY: clean all
 

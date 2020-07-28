@@ -306,7 +306,7 @@ int makeSequence(
 		if (cycle < times[count-1] + periodxburst)
 		{
 			pos += sprintf(error+pos, "ERROR: CYCLE < TIMES[end] + PERIOD x BURST\n");
-			pos += sprintf(error+pos, "             TIMES[end]: %llu\n", times[count-1]);
+			pos += sprintf(error+pos, "               TIMES[end]: %llu\n", times[count-1]);
 			fputs(error, stderr);
 			return C_PARAM_ERROR;
 		}
