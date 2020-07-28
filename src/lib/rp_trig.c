@@ -214,17 +214,17 @@ int setParams(
 	}
 	if (delay>MAX_TIME)
 	{
-		*pos += sprintf(error+*pos, "ERROR: DELAY > MAX_TIME = %lu\n", MAX_TIME);
+		*pos += sprintf(error+*pos, "ERROR: DELAY > MAX_TIME = %llu\n", (uint64_t)MAX_TIME);
 		return C_PARAM_ERROR;
 	}
 	if (cycle>MAX_TIME)
 	{
-		*pos += sprintf(error+*pos, "ERROR: CYCLE > MAX_TIME = %lu\n", MAX_TIME);
+		*pos += sprintf(error+*pos, "ERROR: CYCLE > MAX_TIME = %llu\n", (uint64_t)MAX_TIME);
 		return C_PARAM_ERROR;
 	}
 	if (burst*period>MAX_TIME)
 	{
-		*pos += sprintf(error+*pos, "ERROR: BURST x PERIOD > MAX_TIME = %lu\n", MAX_TIME);
+		*pos += sprintf(error+*pos, "ERROR: BURST x PERIOD > MAX_TIME = %llu\n", (uint64_t)MAX_TIME);
 		return C_PARAM_ERROR;
 	}
 	if (getDev(pos))
